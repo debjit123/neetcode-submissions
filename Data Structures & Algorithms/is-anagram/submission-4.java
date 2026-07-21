@@ -1,0 +1,22 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+
+        if(s.length() != t.length()){
+            return false;
+        }
+
+        int [] hashTable= new int[26];
+
+        for(int i=0; i<s.length(); i++){
+            hashTable[s.charAt(i) - 'a']++;
+            hashTable[t.charAt(i) - 'a']--;
+        }
+
+        for(int j=0; j<hashTable.length; j++){
+            if(hashTable[j] !=0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
